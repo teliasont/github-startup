@@ -1,21 +1,20 @@
 :root {
-  --bg: #EDF1FF;
-  --surface-cool: #FFFFFF;
-  --surface-warm: #FFF9F4;
-  --text: #0F1628;
-  --muted: #7888B8;
-  --muted-warm: #A06848;
+  --bg: #00AAFF;
+  --dark: #0E0F1A;
+  --text: #0E0F1A;
+  --text-on-dark: #EEEEFF;
+  --muted: #888888;
+  --muted-on-dark: #8888AA;
 
-  /* Cool — bright cornflower for decorative stripes, darker for text */
-  --cool-stripe: #4B7FF0;
-  --cool: #2952CC;
+  /* Full-saturation values — borders and decorative only */
+  --lime: #AAFF00;
+  --pink: #FF1166;
+  --coral: #FF5028;
 
-  /* Warm — vivid coral for decorative stripes, darker for text */
-  --warm-stripe: #E84E28;
-  --warm: #C03418;
-
-  --border-cool: #C4D3F7;
-  --border-warm: #F5C9B5;
+  /* Darker variants — text on light backgrounds (AA contrast) */
+  --lime-text: #4D8000;
+  --pink-text: #CC0050;
+  --coral-text: #C43518;
 }
 
 * {
@@ -25,43 +24,47 @@
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: "DM Sans", "Segoe UI", Tahoma, sans-serif;
+  font-family: "Space Grotesk", "Segoe UI", Tahoma, sans-serif;
   background: var(--bg);
   color: var(--text);
-  line-height: 1.65;
+  line-height: 1.6;
 }
 
-/* ── Header ─────────────────────────────────────────────── */
+/* ── Header — full-bleed dark ────────────────────────────── */
 
 .site-header {
-  width: min(960px, 100%);
-  margin: 0 auto;
-  padding: 4rem 1.5rem 2.5rem;
-  border-bottom: 1px solid var(--border-cool);
+  background: var(--dark);
+  padding: 4rem max(1.5rem, calc(50vw - 480px)) 2.5rem;
+  border-bottom: 5px solid var(--pink);
 }
 
 .eyebrow {
   margin: 0 0 1rem;
-  font-size: 0.78rem;
-  letter-spacing: 0.12em;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--cool);
-  font-weight: 700;
+  color: var(--lime);
 }
 
 .site-header h1 {
   margin: 0 0 0.75rem;
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(2.4rem, 6vw, 3.8rem);
-  font-weight: 900;
-  line-height: 1.08;
-  color: var(--text);
+  font-family: "Bebas Neue", Impact, sans-serif;
+  font-size: clamp(3.5rem, 8vw, 6rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.03em;
+  color: #ffffff;
 }
 
 .tagline {
   margin: 0;
+  font-family: "Space Grotesk", sans-serif;
   font-size: 1rem;
-  color: var(--muted);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--muted-on-dark);
 }
 
 /* ── Grid container ──────────────────────────────────────── */
@@ -83,36 +86,40 @@ body {
 /* ── Card base ───────────────────────────────────────────── */
 
 section {
-  border-radius: 10px;
+  border-radius: 0;
   padding: 1.75rem 2rem;
-  box-shadow: 0 2px 16px rgba(30, 60, 160, 0.07), 0 1px 4px rgba(0, 0, 0, 0.05);
-  border: 1px solid;
-  border-left-width: 3px;
+  border: 3px solid;
+  border-left-width: 7px;
 }
 
 section h2 {
-  margin: 0 0 1rem;
-  font-family: "DM Sans", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 700;
+  margin: 0 0 0.9rem;
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
 section p {
   margin: 0 0 0.75rem;
-  font-size: 0.975rem;
+  font-size: 1rem;
+  font-weight: 400;
 }
 
 section p:last-child {
   margin-bottom: 0;
 }
 
+section p strong {
+  font-weight: 700;
+}
+
 section ul,
 section ol {
   margin: 0.25rem 0 0;
   padding-left: 1.35rem;
-  font-size: 0.975rem;
+  font-size: 1rem;
 }
 
 section li {
@@ -123,31 +130,63 @@ section li:last-child {
   margin-bottom: 0;
 }
 
-/* ── Cool cards — cornflower blue ────────────────────────── */
-
-section.cool {
-  background: var(--surface-cool);
-  border-color: var(--border-cool);
-  border-left-color: var(--cool-stripe);
+section li strong {
+  font-weight: 700;
 }
 
-section.cool h2          { color: var(--cool); }
-section.cool p strong    { color: var(--cool); font-weight: 600; }
-section.cool li strong   { color: var(--cool); }
-section.cool li em       { color: var(--muted); font-style: italic; }
-
-/* ── Warm cards — coral ──────────────────────────────────── */
-
-section.warm {
-  background: var(--surface-warm);
-  border-color: var(--border-warm);
-  border-left-color: var(--warm-stripe);
+section li em {
+  font-style: italic;
 }
 
-section.warm h2          { color: var(--warm); }
-section.warm p strong    { color: var(--warm); font-weight: 600; }
-section.warm li strong   { color: var(--warm); }
-section.warm li em       { color: var(--muted-warm); font-style: italic; }
+/* ── Blue cards — sky blue ───────────────────────────────── */
+
+section.lime {
+  background: #ffffff;
+  border-color: var(--lime);
+}
+
+section.lime h2          { color: var(--lime-text); }
+section.lime p strong    { color: var(--lime-text); }
+section.lime li strong   { color: var(--lime-text); }
+section.lime li em       { color: var(--muted); }
+
+/* ── Pink cards — hot pink ───────────────────────────────── */
+
+section.pink {
+  background: #ffffff;
+  border-color: var(--pink);
+}
+
+section.pink h2          { color: var(--pink-text); }
+section.pink p strong    { color: var(--pink-text); }
+section.pink li strong   { color: var(--pink-text); }
+section.pink li em       { color: var(--muted); }
+
+/* ── Coral cards ─────────────────────────────────────────── */
+
+section.coral {
+  background: #ffffff;
+  border-color: var(--coral);
+}
+
+section.coral h2         { color: var(--coral-text); }
+section.coral p strong   { color: var(--coral-text); }
+section.coral li strong  { color: var(--coral-text); }
+section.coral li em      { color: var(--muted); }
+
+/* ── Dark cards — inverted ───────────────────────────────── */
+
+section.dark {
+  background: var(--dark);
+  border-color: var(--lime);
+  color: var(--text-on-dark);
+}
+
+section.dark h2          { color: var(--lime); }
+section.dark p           { color: var(--text-on-dark); }
+section.dark p strong    { color: var(--pink); }
+section.dark li strong   { color: var(--pink); }
+section.dark li em       { color: var(--muted-on-dark); }
 
 /* ── Grid areas ──────────────────────────────────────────── */
 
@@ -157,40 +196,42 @@ section.warm li em       { color: var(--muted-warm); font-style: italic; }
 .card-sources  { grid-area: sources; }
 .card-prompts  { grid-area: prompts; }
 
-/* Identity: featured — thicker stripe, roomier padding */
+/* Identity: featured — thicker stripe, more room */
 .card-identity {
-  border-left-width: 5px;
+  border-left-width: 9px;
   padding: 2.25rem 2.5rem;
 }
 
-/* ── Footer ──────────────────────────────────────────────── */
+/* ── Footer — full-bleed dark ────────────────────────────── */
 
 .site-footer {
-  width: min(960px, 100%);
-  margin: 0 auto;
-  padding: 1.5rem;
+  background: var(--dark);
+  padding: 1.5rem max(1.5rem, calc(50vw - 480px));
   text-align: center;
-  border-top: 1px solid var(--border-cool);
+  border-top: 5px solid var(--coral);
 }
 
 .site-footer p {
   margin: 0;
+  font-family: "Space Grotesk", sans-serif;
   font-size: 0.8rem;
-  color: var(--muted);
-  letter-spacing: 0.04em;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted-on-dark);
 }
 
 /* ── Links ───────────────────────────────────────────────── */
 
 a {
-  color: var(--cool);
-  text-decoration-color: var(--border-cool);
+  color: var(--lime-text);
+  text-decoration-color: var(--lime);
   text-underline-offset: 3px;
 }
 
 a:hover {
-  color: var(--cool-stripe);
-  text-decoration-color: var(--cool-stripe);
+  color: var(--pink-text);
+  text-decoration-color: var(--pink);
 }
 
 /* ── Mobile ──────────────────────────────────────────────── */
