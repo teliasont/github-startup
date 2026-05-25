@@ -1,3 +1,5 @@
+_ Setup check completed. _
+
 # GitHub Starter Tutorial: Toolchain Setup for New Builders
 
 This tutorial only handles setup.
@@ -23,6 +25,7 @@ by yourself:
 ## What You'll Finish
 
 By the end, you will have:
+
 - a GitHub repository named `github-startup`
 - a local clone in `Documents/GitHub/github-startup`
 - VS Code connected to your GitHub account
