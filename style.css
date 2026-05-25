@@ -1,10 +1,12 @@
 :root {
-  --bg: #f3f6fb;
-  --surface: #ffffff;
-  --text: #1f2937;
-  --muted: #5b6678;
-  --border: #dbe2ea;
-  --accent: #0f766e;
+  --bg: #110e0b;
+  --surface: #1e1812;
+  --surface-raised: #261f16;
+  --text: #f0e8d8;
+  --muted: #9e8875;
+  --border: #3d3020;
+  --accent: #d4831a;
+  --accent-light: #e8b56a;
 }
 
 * {
@@ -14,104 +16,159 @@
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: "Segoe UI", Tahoma, sans-serif;
-  background: linear-gradient(180deg, #eef3fb 0%, var(--bg) 100%);
+  font-family: "DM Sans", "Segoe UI", Tahoma, sans-serif;
+  background: var(--bg);
   color: var(--text);
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
+/* ── Header ─────────────────────────────────────────────── */
+
 .site-header {
-  width: min(880px, 100%);
+  width: min(720px, 100%);
   margin: 0 auto;
-  padding: 3rem 1.5rem 1.5rem;
+  padding: 4rem 1.5rem 2.5rem;
+  border-bottom: 1px solid var(--border);
 }
 
 .eyebrow {
-  margin: 0 0 0.5rem;
-  font-size: 0.85rem;
-  letter-spacing: 0.06em;
+  margin: 0 0 1rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--accent);
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .site-header h1 {
-  margin: 0 0 0.5rem;
-  font-size: 2rem;
-  line-height: 1.2;
+  margin: 0 0 0.75rem;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(2.2rem, 6vw, 3.4rem);
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--text);
 }
 
 .tagline {
   margin: 0;
+  font-size: 1rem;
   color: var(--muted);
 }
 
+/* ── Main content ────────────────────────────────────────── */
+
 .container {
-  width: min(880px, 100%);
+  width: min(720px, 100%);
   margin: 0 auto;
-  padding: 0 1.5rem 2rem;
-  display: grid;
-  gap: 1.25rem;
+  padding: 2.5rem 1.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
+
+/* ── Section cards ───────────────────────────────────────── */
 
 section {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 1.5rem 1.75rem;
-  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.06);
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+  padding: 1.75rem 2rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
 }
 
 section h2 {
-  margin: 0 0 0.75rem;
-  font-size: 1.15rem;
-  color: var(--text);
-  border-bottom: 2px solid var(--border);
-  padding-bottom: 0.5rem;
+  margin: 0 0 1rem;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-light);
 }
 
 section p {
-  margin: 0;
-  color: var(--muted);
+  margin: 0 0 0.75rem;
+  color: var(--text);
+  font-size: 0.975rem;
 }
 
-section ul {
-  margin: 0;
-  padding-left: 1.25rem;
-  color: var(--muted);
+section p:last-child {
+  margin-bottom: 0;
+}
+
+section p strong {
+  color: var(--accent-light);
+  font-weight: 600;
+}
+
+section ul,
+section ol {
+  margin: 0.25rem 0 0;
+  padding-left: 1.35rem;
+  color: var(--text);
+  font-size: 0.975rem;
 }
 
 section li {
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.55rem;
 }
 
+section li:last-child {
+  margin-bottom: 0;
+}
+
+section li strong {
+  color: var(--accent-light);
+}
+
+section li em {
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* ── Footer ──────────────────────────────────────────────── */
+
 .site-footer {
-  width: min(880px, 100%);
+  width: min(720px, 100%);
   margin: 0 auto;
   padding: 1.5rem;
   text-align: center;
+  border-top: 1px solid var(--border);
 }
 
 .site-footer p {
   margin: 0;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: var(--muted);
+  letter-spacing: 0.04em;
 }
 
+/* ── Links ───────────────────────────────────────────────── */
+
 a {
-  color: var(--accent);
+  color: var(--accent-light);
+  text-decoration-color: var(--border);
+  text-underline-offset: 3px;
 }
+
+a:hover {
+  color: var(--text);
+  text-decoration-color: var(--accent);
+}
+
+/* ── Mobile ──────────────────────────────────────────────── */
 
 @media (max-width: 640px) {
   .site-header {
-    padding: 2rem 1.25rem 1rem;
+    padding: 2.5rem 1.25rem 2rem;
   }
 
-  .site-header h1 {
-    font-size: 1.5rem;
+  .container {
+    padding: 2rem 1.25rem 2.5rem;
   }
 
   section {
-    padding: 1.25rem;
+    padding: 1.25rem 1.5rem;
   }
 }
