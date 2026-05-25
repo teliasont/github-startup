@@ -1,16 +1,21 @@
 :root {
-  --bg: #090E1D;
-  --surface-cool: #0F1829;
-  --surface-warm: #1B0E08;
-  --text: #DCE5FF;
-  --muted: #5E6E98;
-  --muted-warm: #8A6048;
-  --cool: #6495ED;
-  --cool-light: #91B4F6;
-  --warm: #E05820;
-  --warm-light: #F08E66;
-  --border-cool: #1B2E55;
-  --border-warm: #391606;
+  --bg: #EDF1FF;
+  --surface-cool: #FFFFFF;
+  --surface-warm: #FFF9F4;
+  --text: #0F1628;
+  --muted: #7888B8;
+  --muted-warm: #A06848;
+
+  /* Cool — bright cornflower for decorative stripes, darker for text */
+  --cool-stripe: #4B7FF0;
+  --cool: #2952CC;
+
+  /* Warm — vivid coral for decorative stripes, darker for text */
+  --warm-stripe: #E84E28;
+  --warm: #C03418;
+
+  --border-cool: #C4D3F7;
+  --border-warm: #F5C9B5;
 }
 
 * {
@@ -80,7 +85,7 @@ body {
 section {
   border-radius: 10px;
   padding: 1.75rem 2rem;
-  box-shadow: 0 6px 32px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 16px rgba(30, 60, 160, 0.07), 0 1px 4px rgba(0, 0, 0, 0.05);
   border: 1px solid;
   border-left-width: 3px;
 }
@@ -123,12 +128,12 @@ section li:last-child {
 section.cool {
   background: var(--surface-cool);
   border-color: var(--border-cool);
-  border-left-color: var(--cool);
+  border-left-color: var(--cool-stripe);
 }
 
-section.cool h2          { color: var(--cool-light); }
-section.cool p strong    { color: var(--cool-light); font-weight: 600; }
-section.cool li strong   { color: var(--cool-light); }
+section.cool h2          { color: var(--cool); }
+section.cool p strong    { color: var(--cool); font-weight: 600; }
+section.cool li strong   { color: var(--cool); }
 section.cool li em       { color: var(--muted); font-style: italic; }
 
 /* ── Warm cards — coral ──────────────────────────────────── */
@@ -136,12 +141,12 @@ section.cool li em       { color: var(--muted); font-style: italic; }
 section.warm {
   background: var(--surface-warm);
   border-color: var(--border-warm);
-  border-left-color: var(--warm);
+  border-left-color: var(--warm-stripe);
 }
 
-section.warm h2          { color: var(--warm-light); }
-section.warm p strong    { color: var(--warm-light); font-weight: 600; }
-section.warm li strong   { color: var(--warm-light); }
+section.warm h2          { color: var(--warm); }
+section.warm p strong    { color: var(--warm); font-weight: 600; }
+section.warm li strong   { color: var(--warm); }
 section.warm li em       { color: var(--muted-warm); font-style: italic; }
 
 /* ── Grid areas ──────────────────────────────────────────── */
@@ -178,14 +183,14 @@ section.warm li em       { color: var(--muted-warm); font-style: italic; }
 /* ── Links ───────────────────────────────────────────────── */
 
 a {
-  color: var(--cool-light);
+  color: var(--cool);
   text-decoration-color: var(--border-cool);
   text-underline-offset: 3px;
 }
 
 a:hover {
-  color: var(--text);
-  text-decoration-color: var(--cool);
+  color: var(--cool-stripe);
+  text-decoration-color: var(--cool-stripe);
 }
 
 /* ── Mobile ──────────────────────────────────────────────── */
